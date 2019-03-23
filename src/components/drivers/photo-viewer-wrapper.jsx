@@ -83,7 +83,7 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   render() {
-    console.log('PhotoViewerWrapper', this.state);
+    console.log('PhotoViewerWrapper', this.props);
     if (!this.state.imageLoaded) {
       return <Loading />;
     }
