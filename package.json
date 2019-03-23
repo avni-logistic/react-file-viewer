@@ -1,12 +1,12 @@
 {
-  "name": "react-file-viewer",
-  "version": "1.1.0",
+  "name": "react-file-viewer5",
+  "version": "0.0.2",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plangrid/react-file-viewer.git"
+    "url": "git+https://github.com/avni-logistic/react-file-viewer.git"
   },
   "scripts": {
     "dev": "webpack -d --watch",
