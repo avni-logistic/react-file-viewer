@@ -15,6 +15,15 @@ export default class PhotoViewer extends Component {
     document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
   }
 
+  componentWillReceiveProps(props) {
+    const { originalWidth, originalHeight } = props;
+    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
+    props.texture.image.style.width = `${imageDimensions.width}px`; // eslint-disable-line
+    props.texture.image.style.height = `${imageDimensions.height}px`; // eslint-disable-line
+    props.texture.image.setAttribute('class', 'photo');
+    document.getElementById('pg-photo-container').appendChild(props.texture.image);
+  }
+
   getImageDimensions(originalWidth, originalHeight) {
     // Scale image to fit into viewer
     let imgHeight;
