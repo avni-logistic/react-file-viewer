@@ -25,6 +25,7 @@ class VideoViewer extends Component {
   }
 
   render() {
+    console.log('VideoViewer', this.props);
     const visibility = this.state.loading ? 'hidden' : 'visible';
     return (
       <div className="pg-driver-view">

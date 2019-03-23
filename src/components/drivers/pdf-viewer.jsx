@@ -141,6 +141,7 @@ export default class PDFDriver extends React.Component {
   }
 
   render() {
+    console.log('PDFPage', this.props);
     return (
       <div className="pdf-viewer-container">
         <div className="pdf-viewer" ref={node => this.container = node} >
