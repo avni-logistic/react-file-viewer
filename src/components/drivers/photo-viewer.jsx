@@ -6,6 +6,7 @@ import 'styles/photo-viewer.scss';
 
 export default class PhotoViewer extends Component {
   componentDidMount() {
+    document.getElementById('pg-photo-container').innerHTML = '';
     const { originalWidth, originalHeight } = this.props;
     const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
 
@@ -16,6 +17,7 @@ export default class PhotoViewer extends Component {
   }
 
   componentWillReceiveProps(props) {
+    document.getElementById('pg-photo-container').innerHTML = '';
     const { originalWidth, originalHeight } = props;
     const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
     props.texture.image.style.width = `${imageDimensions.width}px`; // eslint-disable-line
