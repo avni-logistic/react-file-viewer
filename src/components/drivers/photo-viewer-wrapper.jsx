@@ -51,7 +51,7 @@ export default class PhotoViewerWrapper extends Component {
     );
   }
 
-  compoenentWillReceiveProps(props) {
+  componentWillReceiveProps(props) {
     console.log('props', props);
     console.log('this.props', this.props);
     if(props.filePath !== this.props.filePath) {
