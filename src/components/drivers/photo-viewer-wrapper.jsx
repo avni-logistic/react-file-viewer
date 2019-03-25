@@ -52,10 +52,7 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log('props', props);
-    console.log('this.props', this.props);
-    if(props.filePath !== this.props.filePath) {
-      console.log('===>');
+    if (props.filePath !== this.props.filePath) {
     // spike on using promises and a different loader or adding three js loading manager
       const loader = new THREE.TextureLoader();
       loader.crossOrigin = '';
@@ -83,7 +80,6 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   render() {
-    console.log('PhotoViewerWrapper', this.props);
     if (!this.state.imageLoaded) {
       return <Loading />;
     }

@@ -51,7 +51,6 @@ export default class PhotoViewer extends Component {
   }
 
   render() {
-    console.log('PhotoViewer', this.props);
     const containerStyles = {
       width: `${this.props.width}px`,
       height: `${this.props.height}px`,

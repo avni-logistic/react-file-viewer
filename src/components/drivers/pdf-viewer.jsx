@@ -96,6 +96,16 @@ export default class PDFDriver extends React.Component {
     });
   }
 
+  componentWillReceiveProps(props) {
+    if (props.filePath !== this.props.filePath) {
+      const { filePath } = props;
+      const containerWidth = this.container.offsetWidth;
+      PDFJS.getDocument(filePath, null, null, this.progressCallback.bind(this)).then((pdf) => {
+        this.setState({ pdf, containerWidth });
+      });
+    }
+  }
+
   setZoom(zoom) {
     this.setState({
       zoom,
@@ -141,7 +151,6 @@ export default class PDFDriver extends React.Component {
   }
 
   render() {
-    console.log('PDFPage', this.props);
     return (
       <div className="pdf-viewer-container">
         <div className="pdf-viewer" ref={node => this.container = node} >
