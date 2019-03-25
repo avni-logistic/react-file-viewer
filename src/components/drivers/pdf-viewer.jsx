@@ -25,7 +25,7 @@ export class PDFPage extends React.Component {
       if (prevProps.zoom !== this.props.zoom) this.fetchAndRenderPage();
       return;
     }
-
+    if (this.props.pdf !== prevProps.pdf) this.fetchAndRenderPage();
     // we want to render/re-render in two scenarias
     // user scrolls to the pdf
     // user zooms in
@@ -39,7 +39,6 @@ export class PDFPage extends React.Component {
 
   fetchAndRenderPage() {
     const { pdf, index } = this.props;
-    console.log('pdfpage', pdf);
     pdf.getPage(index).then(this.renderPage.bind(this));
   }
 
@@ -133,7 +132,6 @@ export default class PDFDriver extends React.Component {
 
   renderPages() {
     const { pdf, containerWidth, zoom } = this.state;
-    console.log('pdf', pdf);
     if (!pdf) return null;
     const pages = Array.apply(null, { length: pdf.numPages });
     return pages.map((v, i) => (
