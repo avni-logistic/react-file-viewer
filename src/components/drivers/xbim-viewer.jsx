@@ -25,6 +25,21 @@ export default class XBimViewer extends Component {
     }
   }
 
+  componentWillReceiveProps(props) {
+    if (props.filePath !== this.props.filePath) {
+      try {
+        const viewer = new XViewer('xbim-viewer');
+        viewer.load(props.filePath);
+        viewer.start();
+      } catch (e) {
+        if (props.onError) {
+          props.onError(e);
+        }
+        this.setState({ error: e });
+      }
+    }
+  }
+
   render() {
     if (this.state.error) {
       return <Error {...this.props} error={this.state.error} />;

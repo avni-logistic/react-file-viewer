@@ -57,6 +57,16 @@ export default class extends Component {
     this.updateView();
   }
 
+  componentWillReceiveProps(props) {
+    if (props.texture !== this.props.texture) {
+      this.sphereMaterial = new THREE.MeshBasicMaterial();
+      this.sphereMaterial.map = props.texture;
+      const sphereMesh = new THREE.Mesh(this.sphere, this.sphereMaterial);
+      this.scene.add(sphereMesh);
+      this.updateView();
+    }
+  }
+
   componentWillUpdate() {
     this.updateView();
   }
